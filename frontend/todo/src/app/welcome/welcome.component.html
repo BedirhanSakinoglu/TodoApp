@@ -1,5 +1,13 @@
 <h1>Welcome, {{username}}</h1>
+
 <div>
     <p>I made this application while learning angular so don't forget to keep your expectations low.</p>
-    <p>You can manage your todos from <a routerLink="/todos">here</a></p>
+    <!--<p>You can manage your todos from <a routerLink="/todos">here</a></p>-->
+    <p>You can manage your todos from here: </p>
+    <button (click)="manageTodos()" class="btn btn-dark">Manage Todos</button>
+</div>
+
+<div>
+    <br><p>Click this button to get a special message</p>
+    <button (click)="getWelcomeMessage()" class="btn btn-dark">Get Welcome Message</button>
 </div>
