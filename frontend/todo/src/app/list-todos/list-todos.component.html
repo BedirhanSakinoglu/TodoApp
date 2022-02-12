@@ -3,7 +3,7 @@
 <div class="alert alert-success" *ngIf='deletionMessage'>{{deletionMessage}}</div>
 
 <div class="container">
-    <table class="table">
+    <table class="table mt-4">
         <thead>
         <tr>
             <!--<th>ID</th>-->
@@ -18,9 +18,13 @@
             <td>{{todo.description}}</td>
             <td>{{todo.dueDate | date}}</td>
             <td>{{todo.isDone}}</td>
-            <td><button (click)="updateTodo(todo.id)" class="btn btn-success">Update</button></td>
-            <td><button (click)="deleteTodo(todo.id)" class="btn btn-warning">Delete</button></td>
+            <td><button (click)="updateTodo(todo.id)" class="btn btn-primary btn-sm">Update</button></td>
+            <td><button (click)="deleteTodo(todo.id)" class="btn btn-danger btn-sm">Delete</button></td>
         </tr>
     </tbody>
     </table>
+
+    <div class="container">
+        <button (click)="addTodo()" class="btn btn-success mt-4">Add New Todo</button>
+    </div>
 </div>
