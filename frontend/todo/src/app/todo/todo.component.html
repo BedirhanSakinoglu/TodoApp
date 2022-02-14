@@ -1,9 +1,9 @@
 <h1>TODO</h1>
 
 <div class="container mt-4">
-    <div class="alert alert-warning" *ngIf="todoForm.dirty && todoForm.invalid">Please Enter a Valid Todo</div>
+    <!--<div class="alert alert-warning" *ngIf="todoForm.dirty && todoForm.invalid">Please Enter a Valid Todo</div>-->
     <!--<div class="alert alert-warning" *ngIf="todoForm.touched && todoForm.invalid">Please Enter a Valid Description</div>-->
-    <!--<div class="alert alert-warning" *ngIf="todoForm.touched && todoForm.invalid">Please Enter a Valid Due Date</div>-->
+    <div class="alert alert-warning" *ngIf="invalidDate">Please Enter a Valid Due Date</div>
 
     <form (ngSubmit)="todoForm.valid && saveTodo()" #todoForm="ngForm">
         <fieldset class="form-group">
@@ -13,7 +13,7 @@
         <br>
         <fieldset class="form-group">
             <label>Due Date:</label>
-            <input type="date" #dueDate="ngModel" [ngModel]="todo.dueDate | date:'yyyy-MM-dd'" (ngModelChange)="todo.dueDate = $event" class="form-control" name="dueDate" required="required">
+            <input type="date" #dueDate="ngModel" min={{myFormattedDate}} [ngModel]="todo.dueDate | date:'yyyy-MM-dd'" (ngModelChange)="todo.dueDate = $event" class="form-control" name="dueDate" required="required">
         </fieldset>
         
         <button type="submit" class="btn btn-success mt-5">Save</button>

@@ -13,7 +13,11 @@ export class TodoComponent implements OnInit {
 
   id!:number;
   todo!:Todo;
-  //invalidDate: boolean = false;
+  
+  pipe = new DatePipe('en-US');
+  myFormattedDate:string|null = "A";
+  stringDate:string|null = "B";
+  invalidDate: boolean = false;
   
   constructor(
     private todoService: TodoDataService,
@@ -22,6 +26,12 @@ export class TodoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    //Invalid date
+    const now = Date.now();
+    //console.log("NOW: ", now);
+    this.myFormattedDate = this.pipe.transform(now, "yyyy-MM-dd");
+    console.log("MY FORMATTED DATE: ", this.myFormattedDate);
+    //------------
     this.id = this.route.snapshot.params['id'];
     this.todo = new Todo(this.id,sessionStorage.getItem('authenticatedUser') as string,'',false,new Date()); //Bunu yapmayınca hata veriyor
     
@@ -33,13 +43,16 @@ export class TodoComponent implements OnInit {
   }
 
   saveTodo(){
+    this.stringDate = this.pipe.transform(this.todo.dueDate, "yyyy-MM-dd");
+    console.log("DUE DATE: ", this.todo.dueDate);
     //Check Date
-    //if(this.todo.dueDate < this.date){
-    //  this.invalidDate = true;
-    //}
+    if(this.stringDate! < this.myFormattedDate!){
+      console.log("HEHUEHEUHEUHEUEH");
+      this.invalidDate = true;
+    }
     //Save
-    //else{
-      //this.invalidDate = false;
+    else{
+      this.invalidDate = false;
       if(this.id == -1){
         this.todoService.createTodo(sessionStorage.getItem('authenticatedUser') as string, this.todo).subscribe(
           data => {
@@ -56,6 +69,6 @@ export class TodoComponent implements OnInit {
           }
         )
       }
-    //}
+    }
   }
 }
