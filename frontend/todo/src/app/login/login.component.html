@@ -3,7 +3,7 @@
 <div class="container mt-5">
     <div class="alert alert-warning" *ngIf="invalidLogin">{{errorMessage}}</div>
 
-    <form (ngSubmit)="!todoForm.invalid && handleLogin()" #todoForm="ngForm">
+    <form (ngSubmit)="!todoForm.invalid && handleBasicAuthLogin()" #todoForm="ngForm">
         <div class="container">
             <div class="mt-4">
                 User Name: <input type="text" name="username" [(ngModel)]="username" >
