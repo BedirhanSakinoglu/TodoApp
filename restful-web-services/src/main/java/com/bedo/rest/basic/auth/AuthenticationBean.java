@@ -1,4 +1,4 @@
-package com.bedo.rest.webservices.restfulwebservices.basic.auth;
+package com.bedo.rest.basic.auth;
 
 public class AuthenticationBean {
 
