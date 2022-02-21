@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
   handleLogin(){
     /*
     if(this.username==='bedo' && this.password==='123'){

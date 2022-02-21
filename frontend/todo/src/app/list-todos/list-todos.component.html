@@ -12,19 +12,21 @@
             <th>Is Done</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody *ngIf="todos.length > 0">
         <tr *ngFor="let todo of todos">
             <!--<td>{{todo.id}}</td>-->
             <td>{{todo.description}}</td>
             <td>{{todo.dueDate | date}}</td>
             <td>{{todo.isDone}}</td>
+            <td><button (click)="markDone(todo.id, todo)" class="btn btn-success btn-sm" *ngIf="!todo.isDone">Mark as Done</button></td>
             <td><button (click)="updateTodo(todo.id)" class="btn btn-primary btn-sm">Update</button></td>
             <td><button (click)="deleteTodo(todo.id)" class="btn btn-danger btn-sm">Delete</button></td>
         </tr>
     </tbody>
     </table>
+    <div class="alert alert-warning mt-4" *ngIf='todos.length == 0'>You have no todo available. Click the button below to add a new todo.</div>
 
     <div class="container">
-        <button (click)="addTodo()" class="btn btn-success mt-4">Add New Todo</button>
+        <button (click)="addTodo()" class="btn btn-dark mt-4">Add New Todo</button>
     </div>
 </div>

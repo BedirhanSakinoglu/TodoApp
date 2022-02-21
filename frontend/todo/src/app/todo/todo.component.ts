@@ -47,7 +47,6 @@ export class TodoComponent implements OnInit {
     console.log("DUE DATE: ", this.todo.dueDate);
     //Check Date
     if(this.stringDate! < this.myFormattedDate!){
-      console.log("HEHUEHEUHEUHEUEH");
       this.invalidDate = true;
     }
     //Save
@@ -70,5 +69,9 @@ export class TodoComponent implements OnInit {
         )
       }
     }
+  }
+
+  cancel(){
+    this.router.navigate(['todos'])
   }
 }

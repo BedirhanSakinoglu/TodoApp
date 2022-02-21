@@ -6,19 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
 import java.util.List;
 
 @CrossOrigin(origins="http://localhost:4200")
 @RestController
 @RequestMapping
-public class TodoController {
+public class TodoHardcodedController {
 
     private HardcodedTodoService todoService;
 
-    public TodoController(@Autowired HardcodedTodoService todoService) {
+    public TodoHardcodedController(@Autowired HardcodedTodoService todoService) {
         this.todoService = todoService;
     }
 

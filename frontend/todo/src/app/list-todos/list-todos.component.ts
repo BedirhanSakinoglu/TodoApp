@@ -70,6 +70,16 @@ export class ListTodosComponent implements OnInit {
     this.router.navigate(['todos',-1]);
   }
 
+  markDone(id:number, todo:Todo){
+    todo.isDone = true;
+    this.todoService.updateTodo(sessionStorage.getItem('authenticatedUser') as string, id, todo).subscribe(
+      data => {
+        console.log(data)
+        this.router.navigate(['todos'])
+      }
+    )
+  }
+
   ngOnInit(): void {
     this.listTodos();
   }

@@ -1,12 +1,12 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div>
-            <a routerLink="/welcome/bedo" class="navbar-brand">ToDoApp</a>
+            <a routerLink="/welcome/{{username}}" class="navbar-brand">ToDoApp</a>
         </div>
 
         <ul class="navbar-nav navbar-collapse justify-content-end">
             <!--Burada fonksiyon çağırmamızın sebebi variablea bakınca refreshlenmiyor-->
-            <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/welcome/bedo" class="nav-link">Home</a></li>
+            <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/welcome/{{username}}" class="nav-link">Home</a></li>
             <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/todos" class="nav-link">Todos</a></li>
         </ul>
 
