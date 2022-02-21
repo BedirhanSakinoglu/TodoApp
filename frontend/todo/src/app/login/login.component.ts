@@ -54,6 +54,10 @@ export class LoginComponent implements OnInit {
     )
   }
 
+  register(){
+    console.log("Not implemented yet")
+  }
+
   /*
   handleBasicAuthLogin(){
     this.basicAuthenticationService.executeBasicAuthenticationService(this.username, this.password).subscribe(
