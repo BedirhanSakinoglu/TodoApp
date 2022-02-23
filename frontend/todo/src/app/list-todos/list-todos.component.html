@@ -1,9 +1,8 @@
 <h1>My Todos</h1>
 
-<div class="alert alert-success mt-4" *ngIf='deletionMessage'>{{deletionMessage}}</div>
-
-<div class="container">
-    <table class="table mt-4">
+<div style="max-height: 60vh; overflow: auto;" class="container">
+    <div class="alert alert-success mt-4" *ngIf='deletionMessage'>{{deletionMessage}}</div>
+    <table  class="table mt-4">
         <thead>
         <tr>
             <!--<th>ID</th>-->
@@ -25,8 +24,7 @@
     </tbody>
     </table>
     <div class="alert alert-warning mt-4" *ngIf='todos.length == 0'>You have no todo available. Click the button below to add a new todo.</div>
-
-    <div class="container">
-        <button (click)="addTodo()" class="btn btn-dark mt-4">Add New Todo</button>
-    </div>
+</div>
+<div class="container">
+    <button (click)="addTodo()" class="btn btn-dark mt-4">Add New Todo</button>
 </div>

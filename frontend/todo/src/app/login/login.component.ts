@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
   }
 
   register(){
-    console.log("Not implemented yet")
+    this.router.navigate(['register']);
   }
 
   /*

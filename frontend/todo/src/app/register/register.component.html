@@ -1,0 +1,18 @@
+<h1>Register</h1>
+
+<div class="container mt-5">
+    <div class="alert alert-warning" *ngIf="todoForm.touched && todoForm.invalid">Please Enter a Valid Description</div>
+
+    <form (ngSubmit)="!todoForm.invalid && register()" #todoForm="ngForm">
+        <div class="container">
+            <div class="mt-4">
+                <p>User Name:</p> <input type="text" name="username" [(ngModel)]="username" >
+                <p class="mt-4">Password:</p> <input type="password" name="password" [(ngModel)]="password"> 
+            </div>
+            <div class="mt-4">
+                <button type="submit" class="btn btn-success">Register</button>
+                <button routerLink="/login" style="margin-left:2vh" class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>
